@@ -32,7 +32,7 @@
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.7.0",
-    "@pinkpixel/mcpollinations": "^1.0.9",
+    "@pinkpixel/mcpollinations": "^1.1.1",
     "node-abort-controller": "^3.1.1",
     "node-fetch": "^3.3.2",
     "play-sound": "^1.1.6"

@@ -106,7 +106,7 @@ const audioPlayer = player({});
 const server = new Server(
   {
     name: '@pinkpixel/mcpollinations',
-    version: '1.1.0',
+    version: '1.1.1',
   },
   {
     capabilities: {

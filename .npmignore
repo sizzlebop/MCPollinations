@@ -1,0 +1,20 @@
+# Test files and outputs
+test-output/
+*-output/
+*.test.js
+test-*.js
+
+# Development files
+.env
+.env.*
+node_modules/
+.git/
+.github/
+.gitignore
+.vscode/
+.roo/
+.roorules
+
+# Logs
+*.log
+npm-debug.log*

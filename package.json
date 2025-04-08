@@ -1,0 +1,47 @@
+{
+  "name": "@pinkpixel/mcpollinations",
+  "version": "1.0.8",
+  "description": "Model Context Protocol (MCP) server for the Pollinations APIs with image saving functionality.",
+  "type": "module",
+  "bin": {
+    "mcpollinations": "./pollinations-mcp-server.js"
+  },
+  "files": [
+    "src/**/*",
+    "pollinations-mcp-server.js",
+    "generate-mcp-config.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node test-mcp-client.js",
+    "test:image-save": "node test-image-save.js",
+    "test:list-tools": "node test-list-tools.js",
+    "start": "node pollinations-mcp-server.js",
+    "generate-config": "node generate-mcp-config.js"
+  },
+  "keywords": [
+    "pollinations",
+    "ai",
+    "image",
+    "generation",
+    "model-context-protocol",
+    "mcp"
+  ],
+  "author": "pinkpixel",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "@pinkpixel/mcpollinations": "^1.0.8",
+    "node-abort-controller": "^3.1.1",
+    "node-fetch": "^3.3.2",
+    "play-sound": "^1.1.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinkpixel-dev/mcpollinations.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

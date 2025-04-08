@@ -1,0 +1,37 @@
+{
+  "mcpollinations": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@pinkpixel/mcpollinations"
+    ],
+    "resources": {
+      "output_dir": "./mcpollinations-output"
+    },
+    "default_params": {
+      "image": {
+        "model": "flux",
+        "width": 1024,
+        "height": 1024,
+        "safe": false,
+        "enhance": true
+      },
+      "text": {
+        "model": "openai"
+      },
+      "audio": {
+        "voice": "alloy"
+      }
+    },
+    "disabled": false,
+    "alwaysAllow": [
+      "generateImageUrl",
+      "generateImage",
+      "listImageModels",
+      "respondAudio",
+      "listAudioVoices",
+      "respondText",
+      "listTextModels"
+    ]
+  }
+}

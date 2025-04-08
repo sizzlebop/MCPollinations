@@ -17,7 +17,7 @@ export const generateImageUrlSchema = {
       },
       model: {
         type: 'string',
-        description: 'Model name to use for generation (default: "flux"). Available options: "flux", "sdxl", "sd3", "sd15", "flux-schnell", "flux-dev"'
+        description: 'Model name to use for generation (default: "flux"). Available image models: "flux", "turbo" (sdxl)'
       },
       seed: {
         type: 'number',
@@ -83,7 +83,7 @@ export const generateImageSchema = {
       },
       outputPath: {
         type: 'string',
-        description: 'Directory path where to save the image (default: "./mcpollinations-output")'
+        description: 'Directory path where to save the image (default: "~/mcpollinations-output")'
       },
       fileName: {
         type: 'string',

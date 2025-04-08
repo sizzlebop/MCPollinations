@@ -17,7 +17,7 @@ const defaultConfig = {
       "@pinkpixel/mcpollinations"
     ],
     "resources": {
-      "output_dir": "./mcpollinations-output",
+      "output_dir": "~/mcpollinations-output",
     },
     "default_params": {
       "image": {
@@ -85,7 +85,8 @@ async function generateMcpConfig() {
 
     // Resources customization
     console.log('\nResource Directories:');
-    console.log('Note: Using relative path (starting with "./") is recommended for portability.');
+    console.log('Note: Using relative path (starting with "~/" by default).');
+    console.log('NOTE: It is HIGHLY recommended to use an absolute output path due to limitations with some application environments.')
     console.log('These directories will be created automatically if they don\'t exist.');
 
     const outputDir = await prompt(`Output directory for saved files (default: "${config[configKey].resources.output_dir}"): `);

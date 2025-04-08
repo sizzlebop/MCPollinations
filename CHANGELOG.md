@@ -44,6 +44,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated tool schemas to expose only the parameters we want to customize in the MCP client
 - Added MIT LICENSE file
 - Added comprehensive .gitignore file
+- Changed default image save location to ~/mcpollinations-output in user's home directory for easier access
+  - Note: When using the generateImage_npx tool directly, images may still be saved in the extension directory
+  - For consistent behavior, use the MCP server directly or specify an absolute path
 - Updated documentation to reflect the new configuration generator.
 
 ## [1.0.6] - `2025-04-01`

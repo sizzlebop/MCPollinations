@@ -106,7 +106,7 @@ const audioPlayer = player({});
 const server = new Server(
   {
     name: '@pinkpixel/mcpollinations',
-    version: '1.0.8',
+    version: '1.1.0',
   },
   {
     capabilities: {
@@ -151,7 +151,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     }
   } else if (name === 'generateImage') {
     try {
-      const { prompt, model = 'flux', seed, width = 1024, height = 1024, enhance = true, safe = false, outputPath = './mcpollinations-output', fileName = '', format = 'png' } = args;
+      const { prompt, model = 'flux', seed, width = 1024, height = 1024, enhance = true, safe = false, outputPath = '~/mcpollinations-output', fileName = '', format = 'png' } = args;
       const result = await generateImage(prompt, model, seed, width, height, enhance, safe, outputPath, fileName, format);
 
       // Prepare the response content

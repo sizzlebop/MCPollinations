@@ -1,6 +1,6 @@
 {
   "name": "@pinkpixel/mcpollinations",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "Model Context Protocol (MCP) server for the Pollinations APIs with image saving functionality.",
   "type": "module",
   "bin": {
@@ -32,7 +32,7 @@
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.7.0",
-    "@pinkpixel/mcpollinations": "^1.0.8",
+    "@pinkpixel/mcpollinations": "^1.0.9",
     "node-abort-controller": "^3.1.1",
     "node-fetch": "^3.3.2",
     "play-sound": "^1.1.6"

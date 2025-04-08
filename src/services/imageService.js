@@ -78,13 +78,13 @@ export async function generateImageUrl(prompt, model = 'flux', seed = Math.floor
  * @param {number} [height=1024] - Height of the generated image
  * @param {boolean} [enhance=true] - Whether to enhance the prompt using an LLM before generating
  * @param {boolean} [safe=false] - Whether to apply content filtering
- * @param {string} [outputPath='./mcpollinations-output'] - Directory path where to save the image
+ * @param {string} [outputPath='~/mcpollinations-output'] - Directory path where to save the image (defaults to user's home directory)
  * @param {string} [fileName] - Name of the file to save (without extension)
  * @param {string} [format='png'] - Image format to save as (png, jpeg, jpg, webp)
  * @returns {Promise<Object>} - Object containing the base64 image data, mime type, metadata, and file path if saved
  * @note Always includes nologo=true and private=true parameters
  */
-export async function generateImage(prompt, model = 'flux', seed = Math.floor(Math.random() * 1000000), width = 1024, height = 1024, enhance = true, safe = false, outputPath = './mcpollinations-output', fileName = '', format = 'png') {
+export async function generateImage(prompt, model = 'flux', seed = Math.floor(Math.random() * 1000000), width = 1024, height = 1024, enhance = true, safe = false, outputPath = '~/mcpollinations-output', fileName = '', format = 'png') {
   if (!prompt || typeof prompt !== 'string') {
     throw new Error('Prompt is required and must be a string');
   }
@@ -130,10 +130,17 @@ export async function generateImage(prompt, model = 'flux', seed = Math.floor(Ma
     // Import required modules
     const fs = await import('fs');
     const path = await import('path');
+    const os = await import('os');
+
+    // Expand the tilde (~) to the user's home directory if present
+    let expandedOutputPath = outputPath;
+    if (outputPath.startsWith('~')) {
+      expandedOutputPath = path.join(os.homedir(), outputPath.substring(1));
+    }
 
     // Create the output directory if it doesn't exist
-    if (!fs.existsSync(outputPath)) {
-      fs.mkdirSync(outputPath, { recursive: true });
+    if (!fs.existsSync(expandedOutputPath)) {
+      fs.mkdirSync(expandedOutputPath, { recursive: true });
     }
 
     // Validate the file format
@@ -156,13 +163,13 @@ export async function generateImage(prompt, model = 'flux', seed = Math.floor(Ma
 
     // Ensure the filename is unique to prevent overwriting
     let fileNameWithSuffix = baseFileName;
-    let filePath = path.join(outputPath, `${fileNameWithSuffix}.${extension}`);
+    let filePath = path.join(expandedOutputPath, `${fileNameWithSuffix}.${extension}`);
     let counter = 1;
 
     // If the file already exists, add a numeric suffix
     while (fs.existsSync(filePath)) {
       fileNameWithSuffix = `${baseFileName}_${counter}`;
-      filePath = path.join(outputPath, `${fileNameWithSuffix}.${extension}`);
+      filePath = path.join(expandedOutputPath, `${fileNameWithSuffix}.${extension}`);
       counter++;
     }
 
